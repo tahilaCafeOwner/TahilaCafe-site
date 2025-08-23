@@ -1,0 +1,90 @@
+/* Tahila Coffee House Styles */
+
+body {
+  background-color: #F5F1E8; /* Cream background */
+  color: #4B2E2B; /* Bean color text */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2F4A3A; /* Green nav bar */
+  color: #F5F1E8; /* Cream text */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4B2E2B; /* Bean color */
+}
+
+header .tagline {
+  font-size: 0.9em;
+  color: #F5F1E8; /* cream text */
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #F5F1E8; /* nav links in cream */
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #6E8F74; /* Olive hover */
+}
+
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.hero img {
+  max-width: 45%;
+  border-radius: 8px;
+}
+
+.hero-text {
+  max-width: 45%;
+}
+
+.hero-text h1 {
+  font-size: 2.5em;
+  color: #4B2E2B; /* Bean heading */
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+.btn {
+  background-color: #F5F1E8; /* cream */
+  border: 2px solid #4B2E2B; /* bean border */
+  color: #4B2E2B;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #6E8F74; /* Olive hover */
+  color: #F5F1E8;
+}
+
+footer {
+  background-color: #2F4A3A;
+  color: #F5F1E8;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
