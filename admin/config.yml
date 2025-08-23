@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "uploads"
-public_folder: "/uploads"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "pages"
@@ -13,5 +13,35 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Headline", name: "headline", widget: "string"}
-          - {label: "Subhead", name: "subhead", widget: "string"}
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subhead", name: "subhead", widget: "string" }
+
+      - file: "about.html"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Content", name: "body", widget: "text" }
+
+      - file: "menu.html"
+        label: "Menu Page"
+        name: "menu"
+        fields:
+          - { label: "Content", name: "body", widget: "text" }
+
+      - file: "community.html"
+        label: "Community Page"
+        name: "community"
+        fields:
+          - { label: "Content", name: "body", widget: "text" }
+
+      - file: "shop.html"
+        label: "Shop Page"
+        name: "shop"
+        fields:
+          - { label: "Content", name: "body", widget: "text" }
+
+      - file: "contact.html"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Content", name: "body", widget: "text" }
