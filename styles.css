@@ -1,5 +1,6 @@
 /* Tahila Coffee House Styles */
 
+/* Body */
 body {
   background-color: #F5F1E8; /* Cream background */
   color: #4B2E2B; /* Bean color text */
@@ -8,9 +9,10 @@ body {
   padding: 0;
 }
 
+/* Header */
 header {
-  background-color: #2F4A3A; /* Green nav bar */
-  color: #F5F1E8; /* Cream text */
+  background-color: #2F4A3A; /* Dark Green header bar */
+  color: #F5F1E8; /* Default cream text */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -20,18 +22,19 @@ header {
 header .logo {
   font-size: 1.5em;
   font-weight: bold;
-  color: #4B2E2B; /* Bean color */
+  color: #F5F1E8; /* Cornerstone Cream for site title */
 }
 
 header .tagline {
   font-size: 0.9em;
-  color: #F5F1E8; /* cream text */
+  color: #F5F1E8; /* Cornerstone Cream for tagline */
 }
 
+/* Navigation */
 nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: #F5F1E8; /* nav links in cream */
+  color: #F5F1E8; /* Cream nav links */
   font-weight: bold;
 }
 
@@ -39,6 +42,7 @@ nav a:hover {
   color: #6E8F74; /* Olive hover */
 }
 
+/* Hero Section */
 .hero {
   display: flex;
   justify-content: space-around;
@@ -58,7 +62,7 @@ nav a:hover {
 
 .hero-text h1 {
   font-size: 2.5em;
-  color: #4B2E2B; /* Bean heading */
+  color: #4B2E2B; /* Bean color for headings */
 }
 
 .hero-text p {
@@ -66,9 +70,10 @@ nav a:hover {
   margin: 20px 0;
 }
 
+/* Button */
 .btn {
-  background-color: #F5F1E8; /* cream */
-  border: 2px solid #4B2E2B; /* bean border */
+  background-color: #F5F1E8; /* Cream background */
+  border: 2px solid #4B2E2B; /* Bean border */
   color: #4B2E2B;
   padding: 10px 20px;
   text-decoration: none;
@@ -81,9 +86,10 @@ nav a:hover {
   color: #F5F1E8;
 }
 
+/* Footer */
 footer {
-  background-color: #2F4A3A;
-  color: #F5F1E8;
+  background-color: #2F4A3A; /* Dark Green */
+  color: #F5F1E8; /* Cream text */
   text-align: center;
   padding: 20px;
   margin-top: 40px;
