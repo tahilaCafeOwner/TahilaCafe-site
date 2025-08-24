@@ -3,8 +3,8 @@ backend:
   repo: tahilaCafeOwner/TahilaCafe-site
   branch: main
 
-media_folder: "images/coffee"    # where uploaded files go
-public_folder: "/images/coffee"  # how they're referenced in site
+media_folder: "images/coffee"        # where uploaded files go
+public_folder: "/images/coffee"      # how they’re referenced in site
 
 collections:
   - name: "pages"
