@@ -1,10 +1,10 @@
-
 backend:
-  name: git-gateway
+  name: github
+  repo: tahilaCafeOwner/TahilaCafe-site   # your GitHub repo
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "images/coffee"   # where uploaded files go
+public_folder: "/images/coffee" # how they’re referenced in site
 
 collections:
   - name: "pages"
@@ -22,18 +22,6 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "menu.html"
-        label: "Menu Page"
-        name: "menu"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-      - file: "shop.html"
-        label: "Shop Page"
-        name: "shop"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
       - file: "community.html"
         label: "Community Page"
         name: "community"
@@ -43,6 +31,18 @@ collections:
       - file: "contact.html"
         label: "Contact Page"
         name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "menu.html"
+        label: "Menu Page"
+        name: "menu"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "shop.html"
+        label: "Shop Page"
+        name: "shop"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
