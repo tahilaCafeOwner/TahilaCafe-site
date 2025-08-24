@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"   # where uploaded files go in repo
+public_folder: "/images/uploads" # how they’re referenced on the site
 
 collections:
   - name: "pages"
@@ -16,30 +16,35 @@ collections:
           - { label: "Headline", name: "headline", widget: "string" }
           - { label: "Subhead", name: "subhead", widget: "string" }
           - { label: "Hero Image", name: "hero_image", widget: "image" }
+
       - file: "about.html"
         label: "About Page"
         name: "about"
         fields:
           - { label: "Content", name: "body", widget: "text" }
           - { label: "Profile Image", name: "profile_image", widget: "image" }
+
       - file: "menu.html"
         label: "Menu Page"
         name: "menu"
         fields:
           - { label: "Content", name: "body", widget: "text" }
           - { label: "Menu Image", name: "menu_image", widget: "image" }
+
       - file: "community.html"
         label: "Community Page"
         name: "community"
         fields:
           - { label: "Content", name: "body", widget: "text" }
           - { label: "Community Image", name: "community_image", widget: "image" }
+
       - file: "shop.html"
         label: "Shop Page"
         name: "shop"
         fields:
           - { label: "Content", name: "body", widget: "text" }
           - { label: "Product Image", name: "product_image", widget: "image" }
+
       - file: "contact.html"
         label: "Contact Page"
         name: "contact"
