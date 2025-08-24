@@ -1,11 +1,19 @@
-<!doctype html>
+<<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
+    <!-- Load Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Initialize Decap CMS and tell it where config.yml is
+      CMS.init({
+        config: {
+          load_config_file: true, // load /admin/config.yml
+        }
+      });
+    </script>
   </body>
 </html>
