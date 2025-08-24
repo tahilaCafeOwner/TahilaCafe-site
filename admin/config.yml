@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tahilaCafeOwner/TahilaCafe-site
   branch: main
 
 media_folder: "images/uploads"   # where uploaded files go in repo
