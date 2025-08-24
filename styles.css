@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fdfbf7; color: #333; }
+header { background: #2f4632; color: white; padding: 20px; text-align: center; }
+header nav a { margin: 0 10px; color: white; text-decoration: none; }
+.hero { text-align: center; padding: 40px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
+.gallery img { width: 100%; border-radius: 8px; }
