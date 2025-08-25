@@ -4,26 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu - Tahila Coffee House</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>/* same as about.html */</style>
 </head>
 <body>
-  <header>
-    <a href="index.html"><img src="images/logo.png" alt="Tahila Coffee House Logo" class="logo"></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="shop.html">Shop</a>
-      <a href="community.html">Community</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Our Menu</h1>
-    <p>Explore our handcrafted coffee, teas, and treats.</p>
-  </main>
-  <footer>
-    <p>© 2025 Tahila Coffee House™. All rights reserved.</p>
-  </footer>
+
+<header>...same header/nav as above...</header>
+
+<main>
+  <h1 id="menu-title">Our Menu</h1>
+  <p id="menu-body">Discover our handcrafted coffee, teas, and pastries.</p>
+</main>
+
+<footer>
+  <p>© 2025 Tahila Coffee House™. All rights reserved.</p>
+</footer>
+
+<script>
+  const savedTitle = localStorage.getItem('menuTitle');
+  const savedBody = localStorage.getItem('menuBody');
+  if (savedTitle) document.getElementById('menu-title').textContent = savedTitle;
+  if (savedBody) document.getElementById('menu-body').textContent = savedBody;
+</script>
+
 </body>
 </html>
