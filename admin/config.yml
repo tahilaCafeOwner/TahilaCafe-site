@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: tahilaCafeOwner/TahilaCafe-site
+  repo: tahilaCafeOwner/TahilaCafe-site   # your GitHub repo
   branch: main
+  auth_type: implicit
+  base_url: https://tahila-cafe-site.vercel.app
 
 media_folder: "images/coffee"
 public_folder: "/images/coffee"
