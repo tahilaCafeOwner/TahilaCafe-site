@@ -1,68 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tahila Coffee House Admin Dashboard</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f7f7f7;
-    }
-    header {
-      background: #2f4f4f;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-    }
-    nav {
-      background: #444;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    label {
-      font-weight: bold;
-      margin-top: 10px;
-      display: block;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: #2f4f4f;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1f3434;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
+    header { background: #2f4f4f; color: #fff; padding: 15px; text-align: center; }
+    nav { background: #444; padding: 10px; display: flex; justify-content: center; gap: 15px; }
+    nav a { color: #fff; text-decoration: none; font-weight: bold; cursor: pointer; }
+    nav a:hover { text-decoration: underline; }
+    .container { max-width: 900px; margin: 20px auto; background: #fff; padding: 20px;
+                 border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
+    label { font-weight: bold; margin-top: 10px; display: block; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 15px; padding: 10px 15px; background: #2f4f4f; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #1f3434; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -70,36 +24,95 @@
     <h1>Tahila Coffee House Admin</h1>
     <p>"Cornerstone of Community"</p>
   </header>
-  
+
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#shop">Shop</a>
-    <a href="#community">Community</a>
-    <a href="#contact">Contact</a>
+    <a onclick="showForm('home')">Home</a>
+    <a onclick="showForm('about')">About</a>
+    <a onclick="showForm('menu')">Menu</a>
+    <a onclick="showForm('shop')">Shop</a>
+    <a onclick="showForm('community')">Community</a>
+    <a onclick="showForm('contact')">Contact</a>
   </nav>
 
   <div class="container">
-    <h2 id="page-title">Edit Page</h2>
-    <form id="edit-form">
-      <label for="title">Title</label>
-      <input type="text" id="title" name="title" placeholder="Page title">
+    <h2 id="page-title">Edit Home Page</h2>
 
-      <label for="body">Content</label>
-      <textarea id="body" name="body" rows="8" placeholder="Page content"></textarea>
+    <!-- Forms for each page -->
+    <form id="form-home" class="page-form">
+      <label for="home-title">Home Title</label>
+      <input type="text" id="home-title" placeholder="Home page title">
 
-      <button type="submit">Save Changes</button>
+      <label for="home-body">Home Content</label>
+      <textarea id="home-body" rows="6" placeholder="Home page content"></textarea>
+
+      <button type="button" onclick="saveForm('home')">Save Home</button>
+    </form>
+
+    <form id="form-about" class="page-form hidden">
+      <label for="about-title">About Title</label>
+      <input type="text" id="about-title" placeholder="About page title">
+
+      <label for="about-body">About Content</label>
+      <textarea id="about-body" rows="6" placeholder="About page content"></textarea>
+
+      <button type="button" onclick="saveForm('about')">Save About</button>
+    </form>
+
+    <form id="form-menu" class="page-form hidden">
+      <label for="menu-title">Menu Title</label>
+      <input type="text" id="menu-title" placeholder="Menu page title">
+
+      <label for="menu-body">Menu Content</label>
+      <textarea id="menu-body" rows="6" placeholder="Menu page content"></textarea>
+
+      <button type="button" onclick="saveForm('menu')">Save Menu</button>
+    </form>
+
+    <form id="form-shop" class="page-form hidden">
+      <label for="shop-title">Shop Title</label>
+      <input type="text" id="shop-title" placeholder="Shop page title">
+
+      <label for="shop-body">Shop Content</label>
+      <textarea id="shop-body" rows="6" placeholder="Shop page content"></textarea>
+
+      <button type="button" onclick="saveForm('shop')">Save Shop</button>
+    </form>
+
+    <form id="form-community" class="page-form hidden">
+      <label for="community-title">Community Title</label>
+      <input type="text" id="community-title" placeholder="Community page title">
+
+      <label for="community-body">Community Content</label>
+      <textarea id="community-body" rows="6" placeholder="Community page content"></textarea>
+
+      <button type="button" onclick="saveForm('community')">Save Community</button>
+    </form>
+
+    <form id="form-contact" class="page-form hidden">
+      <label for="contact-title">Contact Title</label>
+      <input type="text" id="contact-title" placeholder="Contact page title">
+
+      <label for="contact-body">Contact Content</label>
+      <textarea id="contact-body" rows="6" placeholder="Contact page content"></textarea>
+
+      <button type="button" onclick="saveForm('contact')">Save Contact</button>
     </form>
   </div>
 
   <script>
-    // Placeholder logic: In real CMS, this would load page content from config.yml
-    const form = document.getElementById('edit-form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('✅ Changes saved! (Simulation - CMS integration coming from config.yml)');
-    });
+    function showForm(page) {
+      document.querySelectorAll('.page-form').forEach(f => f.classList.add('hidden'));
+      document.getElementById('form-' + page).classList.remove('hidden');
+      document.getElementById('page-title').innerText = "Edit " + page.charAt(0).toUpperCase() + page.slice(1) + " Page";
+    }
+
+    function saveForm(page) {
+      const title = document.getElementById(page + '-title').value;
+      const body = document.getElementById(page + '-body').value;
+      localStorage.setItem(page + '-title', title);
+      localStorage.setItem(page + '-body', body);
+      alert("✅ " + page.charAt(0).toUpperCase() + page.slice(1) + " content saved (locally).");
+    }
   </script>
 </body>
 </html>
