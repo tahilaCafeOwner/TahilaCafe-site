@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: tahilaCafeOwner/TahilaCafe-site
+  branch: main
+  auth_type: implicit
+  base_url: https://tahila-cafe-site.vercel.app
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
