@@ -16,35 +16,30 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
       - file: "about.html"
         label: "About Page"
         name: "about"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
       - file: "community.html"
         label: "Community Page"
         name: "community"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
       - file: "contact.html"
         label: "Contact Page"
         name: "contact"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
       - file: "menu.html"
         label: "Menu Page"
         name: "menu"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
       - file: "shop.html"
         label: "Shop Page"
         name: "shop"
