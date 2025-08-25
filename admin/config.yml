@@ -45,4 +45,4 @@ collections:
         name: "shop"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }n" }
