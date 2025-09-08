@@ -33,6 +33,12 @@
       border-radius:16px;padding:20px;box-shadow:0 6px 0 var(--staff)}
     .card h2{margin-top:0;color:var(--bean)}
     .fullimg{width:100%;height:auto;border-radius:12px;display:block;margin:12px 0}
+    .btn{
+      display:inline-block;padding:10px 14px;margin-top:8px;
+      background:var(--olive);color:#fff;border-radius:999px;
+      font-weight:600;text-decoration:none
+    }
+    .btn:hover{filter:brightness(1.05)}
 
     /* Footer (Sage) */
     .site-footer{padding:28px 24px;background:var(--sage);
@@ -80,9 +86,7 @@
       <img src="assets/images/coffee.png" alt="Cup of coffee" class="fullimg" />
       <h2>Fresh Coffee</h2>
       <p>Our roasts are crafted with care to bring out rich flavor.</p>
-      <p>
-        <a href="#menu">View Menu</a> | <a href="#home">Back to Home</a>
-      </p>
+      <a href="#menu" class="btn">View Menu</a>
     </section>
 
     <!-- Bakery Card -->
@@ -90,9 +94,7 @@
       <img src="assets/images/bakery.png" alt="Bakery treats" class="fullimg" />
       <h2>Bakery Treats</h2>
       <p>Pastries and breads baked daily to pair with your coffee.</p>
-      <p>
-        <a href="#shop">Shop Now</a> | <a href="#home">Back to Home</a>
-      </p>
+      <a href="#shop" class="btn">Shop Now</a>
     </section>
 
     <!-- About -->
