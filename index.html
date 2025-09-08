@@ -32,13 +32,25 @@
     .card{background:var(--white);border:2px solid var(--staff);
       border-radius:16px;padding:20px;box-shadow:0 6px 0 var(--staff)}
     .card h2{margin-top:0;color:var(--bean)}
-    .fullimg{width:100%;height:auto;border-radius:12px;display:block;margin:12px 0}
     .btn{
-      display:inline-block;padding:10px 14px;margin-top:8px;
+      display:inline-block;padding:10px 14px;margin-top:10px;
       background:var(--olive);color:#fff;border-radius:999px;
       font-weight:600;text-decoration:none
     }
     .btn:hover{filter:brightness(1.05)}
+
+    /* Split (image + text) cards */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+    .split .media{grid-area:media}
+    .split .content{grid-area:content}
+    .split{grid-template-areas:"media content";}
+    .split.reverse{grid-template-areas:"content media";}
+    .split img{width:100%;height:100%;max-height:380px;object-fit:cover;border-radius:12px;display:block}
+
+    @media (max-width:900px){
+      .split,.split.reverse{grid-template-columns:1fr;grid-template-areas:"media" "content";}
+      .split img{max-height:300px}
+    }
 
     /* Footer (Sage) */
     .site-footer{padding:28px 24px;background:var(--sage);
@@ -53,7 +65,7 @@
     }
     .bottom-nav a{
       display:inline-block;padding:10px 14px;margin:2px 4px;text-decoration:none;
-      background:var(--olive);color:var(--white);border-radius:999px;font-weight:600
+      background:var(--olive);color:#white;border-radius:999px;font-weight:600;color:#fff
     }
     .bottom-nav a:hover{filter:brightness(1.05)}
     a.is-active{box-shadow:inset 0 0 0 2px var(--bean)}
@@ -75,27 +87,37 @@
   </header>
 
   <main class="container">
-    <!-- Hero -->
+    <!-- Welcome -->
     <section id="home" class="section card">
       <h2>Welcome</h2>
       <p>Jazzy vibes. Warm mugs. Community at the center.</p>
     </section>
 
-    <!-- Coffee Card -->
-    <section class="section card">
-      <img src="assets/images/coffee.png" alt="Cup of coffee" class="fullimg" />
-      <h2>Fresh Coffee</h2>
-      <p>Our roasts are crafted with care to bring out rich flavor.</p>
-      <a href="#menu" class="btn">View Menu</a>
+    <!-- CARD 1: image left, text right -->
+    <section class="section card split">
+      <div class="media">
+        <img src="assets/images/coffee.png" alt="Cup of coffee at Tahila Coffee House">
+      </div>
+      <div class="content">
+        <h2>Fresh Coffee</h2>
+        <p>Rich, balanced roasts crafted with care. Sip slow, breathe easy.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
     </section>
 
-    <!-- Bakery Card -->
-    <section class="section card">
-      <img src="assets/images/bakery.png" alt="Bakery treats" class="fullimg" />
-      <h2>Bakery Treats</h2>
-      <p>Pastries and breads baked daily to pair with your coffee.</p>
-      <a href="#shop" class="btn">Shop Now</a>
+    <!-- CARD 2: image right, text left -->
+    <section class="section card split reverse">
+      <div class="media">
+        <img src="assets/images/bakery.png" alt="Bakery treats baked fresh">
+      </div>
+      <div class="content">
+        <h2>Bakery Treats</h2>
+        <p>Daily breads and pastries—perfect pairings for every cup.</p>
+        <a href="#shop" class="btn">Shop Now</a>
+      </div>
     </section>
+
+    <!-- Repeat pattern: add more split cards, flipping .reverse on every other one -->
 
     <!-- About -->
     <section id="about" class="section card">
