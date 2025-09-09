@@ -4,9 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tahila Coffee House — Cornerstone of Community</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bean:#83361F; --olive:#6E8F74; --foam:#EDE3D2; --sage:#8BAE8C;
@@ -14,8 +11,11 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
-    body{margin:0;background:var(--cream);color:var(--staff);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    body{
+      margin:0;background:var(--cream);color:var(--staff);
+      font-family:"Times New Roman", Times, serif;
+      line-height:1.5;
+    }
     .container{max-width:1100px;margin:0 auto;padding:24px 24px 96px}
 
     /* Header (Sage) */
@@ -25,7 +25,7 @@
     }
     .logo{width:56px;height:56px;object-fit:contain}
     .brand-text h1{margin:0;font-size:20px;color:#fff;letter-spacing:.4px}
-    .tag{margin:2px 0 0 0;color:#fff;font-weight:600;font-size:13px;opacity:.9}
+    .tag{margin:2px 0 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
 
     /* Cards */
     .section{margin:24px 0;scroll-margin-top:96px}
@@ -34,7 +34,7 @@
     .btn{
       display:inline-block;padding:10px 14px;margin-top:10px;
       background:var(--olive);color:#fff;border-radius:999px;
-      font-weight:600;text-decoration:none
+      font-weight:700;text-decoration:none
     }
     .btn:hover{filter:brightness(1.05)}
 
@@ -63,7 +63,7 @@
     }
     .bottom-nav a{
       display:inline-block;padding:10px 14px;margin:2px 4px;text-decoration:none;
-      background:var(--olive);color:#fff;border-radius:999px;font-weight:600
+      background:var(--olive);color:#fff;border-radius:999px;font-weight:700
     }
     .bottom-nav a:hover{filter:brightness(1.05)}
     a.is-active{box-shadow:inset 0 0 0 2px var(--bean)}
@@ -88,7 +88,11 @@
     <!-- Welcome -->
     <section id="home" class="section card">
       <h2>Welcome</h2>
-      <p>Jazzy vibes. Warm mugs. Community at the center.</p>
+      <p>
+        Step inside Tahila Coffee House—where coffee, community, and Christ come together. 
+        Whether you’re here to recharge, connect with friends, or join in worship, 
+        our doors are open and the Holy Spirit is welcome.
+      </p>
     </section>
 
     <!-- Coffee -->
@@ -121,8 +125,16 @@
         <img src="assets/images/TahilaCHAbout.png" alt="About Tahila Coffee House">
       </div>
       <div class="content">
-        <h2>About</h2>
-        <p>Tahila means praise. We exist to serve great coffee and the people around us.</p>
+        <h2>About Us</h2>
+        <p>
+          “Tahila” is a Hebrew word meaning praise, often expressed through singing and raising hands in worship. 
+          It speaks to joy, thanksgiving, and lifting our hearts to God.
+        </p>
+        <p>
+          We exist to be a cornerstone for our community, serving excellent coffee, food, and Christian products 
+          while creating a space for fellowship, music, and faith. Jesus is at the center of everything we do, 
+          and we seek to reflect His love in every cup we pour.
+        </p>
         <a href="#about" class="btn">Learn More</a>
       </div>
     </section>
@@ -170,7 +182,12 @@
       </div>
       <div class="content">
         <h2>Contact</h2>
-        <p><a href="mailto:hello@tahilacoffee.example">hello@tahilacoffee.example</a></p>
+        <p>
+          We’d love to hear from you. Reach out anytime with questions, ideas, or to get involved.
+        </p>
+        <p>
+          <a href="mailto:tahilacoffeehouse@gmail.com">tahilacoffeehouse@gmail.com</a>
+        </p>
         <a href="#contact" class="btn">Reach Out</a>
       </div>
     </section>
