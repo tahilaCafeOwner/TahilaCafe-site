@@ -4,37 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tahila Coffee House — Shop Now</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <style>
+    /* ===== Brand Palette ===== */
     :root{
-      --bean:#83361F;           /* Bean Body */
-      --mug:#6E8F74;            /* Olive Branch */
-      --foam:#EDE3D2;           /* Latte */
-      --sage:#8BAE8C;           /* Music Notes */
-      --cream:#F5F1E8;          /* Background */
-      --staff:#734D3B;          /* Staff Lines / headings */
+      --bean:#83361F;   /* deep coffee / accents */
+      --mug:#6E8F74;    /* olive branch green (buttons) */
+      --foam:#EDE3D2;   /* latte foam (panels) */
+      --sage:#8BAE8C;   /* light green accents */
+      --cream:#F5F1E8;  /* page background */
+      --staff:#734D3B;  /* headings / text accent */
       --black:#000;
       --white:#fff;
     }
+
+    /* ===== Base ===== */
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--cream);color:#2a2a2a}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--cream);
+      color:#2a2a2a;
+      padding-bottom:72px; /* space for bottom sticky nav */
+    }
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* ===== Header (drop-in match OK) ===== */
     header{padding:28px 0 16px}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{height:42px;width:auto}
     .brand h1{font-size:20px;margin:0;color:var(--staff);letter-spacing:.4px}
 
-    .hero{padding:24px;border-radius:18px;background:linear-gradient(180deg, var(--foam), var(--cream));border:1px solid #e7dcc7}
+    /* ===== Hero ===== */
+    .hero{
+      padding:24px;
+      border-radius:18px;
+      background:linear-gradient(180deg, var(--foam), var(--cream));
+      border:1px solid #e7dcc7
+    }
     .hero h2{margin:0 0 6px 0;font-weight:800;font-size:32px;color:var(--staff)}
     .hero p{margin:0;color:#5a4636}
 
+    /* ===== Sections ===== */
     .section{margin-top:36px}
     .section h3{margin:0 0 12px;font-size:22px;color:var(--bean);letter-spacing:.3px}
 
+    /* ===== Product Grid / Cards ===== */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-    .card{background:var(--white);border:1px solid #e8e1d6;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .12s ease, box-shadow .12s ease}
+    .card{
+      background:var(--white);
+      border:1px solid #e8e1d6;
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;flex-direction:column;
+      transition:transform .12s ease, box-shadow .12s ease
+    }
     .card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
     .imgbox{aspect-ratio:4/3;background:#f7f3ec;display:flex;align-items:center;justify-content:center}
     .imgbox img{max-width:100%;max-height:100%;object-fit:cover}
@@ -49,17 +78,46 @@
     .btn{flex:1;text-align:center;border:none;padding:10px 12px;border-radius:12px;background:var(--mug);color:var(--white);font-weight:700;cursor:pointer}
     .btn.secondary{background:transparent;color:var(--mug);border:1.5px solid var(--mug)}
 
-    footer{margin:48px 0 12px;font-size:12px;color:#6b5a4d;text-align:center}
+    /* ===== Footer ===== */
+    footer{margin:48px 0 92px;font-size:12px;color:#6b5a4d;text-align:center}
+
+    /* ===== Bottom Sticky Nav (match to index) ===== */
+    .bottom-nav{
+      position:fixed;left:0;right:0;bottom:0;
+      display:flex;justify-content:space-around;align-items:center;
+      gap:6px;
+      background:var(--foam);
+      border-top:1px solid #e2d6c3;
+      padding:10px 8px;
+      z-index:999;
+    }
+    .bottom-nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      color:#3b2d25;
+      background:#fff;
+      border:1px solid #e6dccb;
+      font-weight:600;
+      transition:transform .15s ease, background .2s ease, color .2s ease;
+    }
+    .bottom-nav a:hover{transform:scale(1.06);background:var(--foam)}
+    .bottom-nav a.is-active{background:var(--bean);color:#fff;border-color:var(--bean)}
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- ================= Header =================
+         If you want a pixel-perfect match with your index.html,
+         replace this <header> block with the exact header markup from index.html.
+    -->
     <header>
       <div class="brand">
         <img src="/assets/logo.png" alt="Tahila Coffee House logo" />
         <h1>Tahila Coffee House — Shop Now</h1>
       </div>
     </header>
+    <!-- ================ /Header ================ -->
 
     <!-- Big Captions -->
     <section class="hero" aria-labelledby="big1">
@@ -82,9 +140,29 @@
     </footer>
   </div>
 
+  <!-- ================= Bottom Sticky Nav =================
+       Replace this whole <nav> with the exact bottom-nav block from index.html
+       if you want an identical look/links. Be sure to keep class="is-active" on Shop.
+  -->
+  <nav class="bottom-nav" aria-label="Quick links">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="shop.html" class="is-active">Shop Now</a>
+    <a href="#holiday">Holiday</a>
+    <a href="#community">Community</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <!-- ================= /Bottom Sticky Nav ================= -->
+
   <script>
+    /* ===== Products (Light → Medium → Dark) =====
+       Make sure these files exist in your repo:
+       /assets/TahilaCHLR.png
+       /assets/TahilaBagMed.png
+       /assets/TahilaCHBagDR.png
+    */
     const products = [
-      // === Core Light → Medium → Dark ===
       {
         name: "Morning Praise",
         category: "specialty",   // Light Roast
@@ -111,32 +189,13 @@
         grind: ["Ground"],
         notes: "Deep and bold, a cup that turns even the late hours into praise.",
         image: "/assets/TahilaCHBagDR.png"
-      },
-
-      // === Extra Specialty Placeholders ===
-      {
-        name: "Still Waters",
-        category: "specialty",   // Decaf
-        price: 19.00,
-        size: "1 lb",
-        grind: ["Ground"],
-        notes: "Peaceful and calm, a soothing cup that echoes the rest promised in Psalm 23.",
-        image: "/assets/still-waters.jpg"   // placeholder — update when photo is ready
-      },
-      {
-        name: "Daily Bread",
-        category: "specialty",   // Breakfast Blend
-        price: 20.00,
-        size: "1 lb",
-        grind: ["Ground"],
-        notes: "Nourishing and comforting, the perfect first cup to greet the morning.",
-        image: "/assets/daily-bread.jpg"    // placeholder — update when photo is ready
       }
     ];
 
     function cardTemplate(p){
       const badgeHtml = (p.grind||[]).map(g=>`<span class="badge">${g}</span>`).join("");
-      const img = p.image ? `<img alt="${p.name}" src="${p.image}">` : `<span style="font-size:13px;color:#8b7a6b">Product image</span>`;
+      const img = p.image ? `<img alt="${p.name}" src="${p.image}">`
+                          : `<span style="font-size:13px;color:#8b7a6b">Product image</span>`;
       return `
         <article class="card" tabindex="0" aria-label="${p.name}">
           <div class="imgbox">${img}</div>
