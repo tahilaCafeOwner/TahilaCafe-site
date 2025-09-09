@@ -9,14 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Tahila palette */
       --bean:#83361F;           /* Bean Body */
       --mug:#6E8F74;            /* Olive Branch */
       --foam:#EDE3D2;           /* Latte */
       --sage:#8BAE8C;           /* Music Notes */
       --cream:#F5F1E8;          /* Background */
       --staff:#734D3B;          /* Staff Lines / headings */
-      --black:#000;             
+      --black:#000;
       --white:#fff;
     }
     *{box-sizing:border-box}
@@ -57,7 +56,6 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- Swap this src with your transparent logo when ready -->
         <img src="/assets/logo.png" alt="Tahila Coffee House logo" />
         <h1>Tahila Coffee House — Shop Now</h1>
       </div>
@@ -85,45 +83,33 @@
   </div>
 
   <script>
-    // === HOW TO USE ===
-    // 1) Paste your brainstormed coffee names below in the products array.
-    // 2) For each item, set: category ("specialty" or "roaster"), price, size, notes, image (optional), grind options.
-    // 3) The script will auto-render both sections.
-
-    /**
-     * Example categories
-     *  - specialty: "Ground Specialty Blends"
-     *  - roaster:   "Ground Straight from the Roaster" (listed under Roaster's Selection)
-     */
-
     const products = [
-      // EXAMPLES — replace with your real names
       {
-        name: "Sunday Hymn Blend",
-        category: "specialty", // "specialty" | "roaster"
-        price: 16.00,
-        size: "12 oz",
+        name: "Morning Praise",
+        category: "specialty",   // Light Roast
+        price: 23.00,
+        size: "1 lb",
         grind: ["Ground"],
-        notes: "Silky milk chocolate, toasted pecan, gentle caramel finish.",
-        image: ""
+        notes: "A bright, uplifting roast that starts the day with warmth and joy.",
+        image: "/assets/TahilaCHLR.png"
       },
       {
-        name: "Cornerstone House Blend",
-        category: "roaster",
-        price: 17.50,
-        size: "12 oz",
+        name: "Cornerstone Blend",
+        category: "roaster",     // Medium Roast
+        price: 23.00,
+        size: "1 lb",
         grind: ["Ground"],
-        notes: "Balanced, smooth body with honey and almond notes.",
-        image: ""
+        notes: "Smooth and balanced, a steady anchor for daily fellowship and conversation.",
+        image: "/assets/TahilaBagMed.png"
       },
       {
-        name: "Holiday Latte Cheer",
-        category: "specialty",
-        price: 18.00,
-        size: "12 oz",
+        name: "Trinity Praise",
+        category: "roaster",     // Dark Roast
+        price: 21.00,
+        size: "1 lb",
         grind: ["Ground"],
-        notes: "Cinnamon, nutmeg, vanilla warmth. Limited seasonal run.",
-        image: ""
+        notes: "Deep and bold, a cup that turns even the late hours into praise.",
+        image: "/assets/TahilaCHBagDR.png"
       }
     ];
 
@@ -135,7 +121,7 @@
           <div class="imgbox">${img}</div>
           <div class="content">
             <h4 class="name">${p.name}</h4>
-            <p class="notes">${p.notes||"\u00A0"}</p>
+            <p class="notes">${p.notes||"&nbsp;"}</p>
             <div class="meta">
               <span>${p.size||"12 oz"}</span>
               <span class="price">$${Number(p.price).toFixed(2)}</span>
