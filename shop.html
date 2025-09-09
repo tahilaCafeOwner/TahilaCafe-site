@@ -1,28 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop - Tahila Coffee House</title>
-  <style>/* same styles */</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tahila Coffee House — Shop Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Tahila palette */
+      --bean:#83361F;           /* Bean Body */
+      --mug:#6E8F74;            /* Olive Branch */
+      --foam:#EDE3D2;           /* Latte */
+      --sage:#8BAE8C;           /* Music Notes */
+      --cream:#F5F1E8;          /* Background */
+      --staff:#734D3B;          /* Staff Lines / headings */
+      --black:#000;             
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--cream);color:#2a2a2a}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{padding:28px 0 16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:42px;width:auto}
+    .brand h1{font-size:20px;margin:0;color:var(--staff);letter-spacing:.4px}
+
+    .hero{padding:24px;border-radius:18px;background:linear-gradient(180deg, var(--foam), var(--cream));border:1px solid #e7dcc7}
+    .hero h2{margin:0 0 6px 0;font-weight:800;font-size:32px;color:var(--staff)}
+    .hero p{margin:0;color:#5a4636}
+
+    .section{margin-top:36px}
+    .section h3{margin:0 0 12px;font-size:22px;color:var(--bean);letter-spacing:.3px}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+    .card{background:var(--white);border:1px solid #e8e1d6;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .12s ease, box-shadow .12s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .imgbox{aspect-ratio:4/3;background:#f7f3ec;display:flex;align-items:center;justify-content:center}
+    .imgbox img{max-width:100%;max-height:100%;object-fit:cover}
+    .content{padding:14px 14px 16px}
+    .name{font-weight:700;font-size:16px;color:#33261f;margin:0 0 6px}
+    .notes{font-size:13px;color:#665a50;margin:0 0 10px;min-height:36px}
+    .meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#3a2f28;margin-bottom:10px}
+    .price{font-weight:700;color:var(--staff)}
+    .badges{display:flex;gap:6px;flex-wrap:wrap}
+    .badge{font-size:11px;border:1px solid #e0d6c7;border-radius:999px;padding:4px 8px;background:var(--foam);color:#4a3c33}
+    .cta{display:flex;gap:8px}
+    .btn{flex:1;text-align:center;border:none;padding:10px 12px;border-radius:12px;background:var(--mug);color:var(--white);font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--mug);border:1.5px solid var(--mug)}
+
+    footer{margin:48px 0 12px;font-size:12px;color:#6b5a4d;text-align:center}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <!-- Swap this src with your transparent logo when ready -->
+        <img src="/assets/logo.png" alt="Tahila Coffee House logo" />
+        <h1>Tahila Coffee House — Shop Now</h1>
+      </div>
+    </header>
 
-<header>...same header/nav...</header>
+    <!-- Big Captions -->
+    <section class="hero" aria-labelledby="big1">
+      <h2 id="big1">Ground Straight from the Roaster</h2>
+      <p>Freshly ground, sealed, and sent with care from our roastery.</p>
+    </section>
 
-<main>
-  <h1 id="shop-title">Shop Tahila Coffee</h1>
-  <p id="shop-body">Order beans, merch, and more from our online store.</p>
-</main>
+    <section class="section" aria-labelledby="big2">
+      <h3 id="big2">Ground Specialty Blends</h3>
+      <div class="grid" id="specialty-grid"></div>
+    </section>
 
-<footer><p>© 2025 Tahila Coffee House™. All rights reserved.</p></footer>
+    <section class="section" aria-labelledby="roaster">
+      <h3 id="roaster">Roaster’s Selection (Ground)</h3>
+      <div class="grid" id="roaster-grid"></div>
+    </section>
 
-<script>
-  const savedTitle = localStorage.getItem('shopTitle');
-  const savedBody = localStorage.getItem('shopBody');
-  if (savedTitle) document.getElementById('shop-title').textContent = savedTitle;
-  if (savedBody) document.getElementById('shop-body').textContent = savedBody;
-</script>
+    <footer>
+      Tahila Coffee House Ltd Co — Cornerstone of Community · All rights reserved
+    </footer>
+  </div>
 
+  <script>
+    // === HOW TO USE ===
+    // 1) Paste your brainstormed coffee names below in the products array.
+    // 2) For each item, set: category ("specialty" or "roaster"), price, size, notes, image (optional), grind options.
+    // 3) The script will auto-render both sections.
+
+    /**
+     * Example categories
+     *  - specialty: "Ground Specialty Blends"
+     *  - roaster:   "Ground Straight from the Roaster" (listed under Roaster's Selection)
+     */
+
+    const products = [
+      // EXAMPLES — replace with your real names
+      {
+        name: "Sunday Hymn Blend",
+        category: "specialty", // "specialty" | "roaster"
+        price: 16.00,
+        size: "12 oz",
+        grind: ["Ground"],
+        notes: "Silky milk chocolate, toasted pecan, gentle caramel finish.",
+        image: ""
+      },
+      {
+        name: "Cornerstone House Blend",
+        category: "roaster",
+        price: 17.50,
+        size: "12 oz",
+        grind: ["Ground"],
+        notes: "Balanced, smooth body with honey and almond notes.",
+        image: ""
+      },
+      {
+        name: "Holiday Latte Cheer",
+        category: "specialty",
+        price: 18.00,
+        size: "12 oz",
+        grind: ["Ground"],
+        notes: "Cinnamon, nutmeg, vanilla warmth. Limited seasonal run.",
+        image: ""
+      }
+    ];
+
+    function cardTemplate(p){
+      const badgeHtml = (p.grind||[]).map(g=>`<span class="badge">${g}</span>`).join("");
+      const img = p.image ? `<img alt="${p.name}" src="${p.image}">` : `<span style="font-size:13px;color:#8b7a6b">Product image</span>`;
+      return `
+        <article class="card" tabindex="0" aria-label="${p.name}">
+          <div class="imgbox">${img}</div>
+          <div class="content">
+            <h4 class="name">${p.name}</h4>
+            <p class="notes">${p.notes||"\u00A0"}</p>
+            <div class="meta">
+              <span>${p.size||"12 oz"}</span>
+              <span class="price">$${Number(p.price).toFixed(2)}</span>
+            </div>
+            <div class="badges">${badgeHtml}</div>
+            <div class="cta">
+              <button class="btn">Add to Cart</button>
+              <button class="btn secondary">Details</button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function render(){
+      const specialty = products.filter(p=>p.category==="specialty");
+      const roaster   = products.filter(p=>p.category==="roaster");
+      document.querySelector('#specialty-grid').innerHTML = specialty.map(cardTemplate).join('');
+      document.querySelector('#roaster-grid').innerHTML   = roaster.map(cardTemplate).join('');
+    }
+
+    render();
+  </script>
 </body>
 </html>
