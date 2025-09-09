@@ -28,7 +28,7 @@
     .brand-text h1{margin:0;font-size:20px;color:#fff;letter-spacing:.4px}
     .tag{margin:2px 0 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
 
-    /* Sections + Cards (match Home vibe) */
+    /* Sections + Cards */
     .section{margin:24px 0}
     .card{
       background:var(--white);border:2px solid var(--staff);
@@ -40,14 +40,16 @@
     /* Product grid/cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
     .p-card .imgbox{
-      aspect-ratio:3/4;              /* portrait frame for coffee bags */
+      aspect-ratio:3/4;             /* portrait frame for coffee bags */
       background:#f7f3ec;
+      border-radius:12px;overflow:hidden;
       display:flex;align-items:center;justify-content:center;
-      border-radius:12px;overflow:hidden;padding:8px;
+      padding:0;                     /* full-bleed */
     }
     .p-card img{
-      max-width:100%;max-height:100%;
-      object-fit:contain;            /* show whole bag, no crop */
+      width:100%;height:100%;
+      object-fit:cover;              /* fill edge-to-edge */
+      object-position:center top;    /* keep the top/logo in view */
       display:block;
     }
     .p-name{margin:12px 0 6px;font-weight:700}
@@ -137,7 +139,7 @@
   </nav>
 
   <script>
-    // Year + verse (same feel as Home)
+    // Year + verse
     document.getElementById('year').textContent = new Date().getFullYear();
     const verses=[
       {ref:"Psalm 118:22",text:"The stone that the builders rejected has now become the cornerstone."},
@@ -147,14 +149,14 @@
     const pick=verses[Math.floor(Math.random()*verses.length)];
     document.getElementById('verse').textContent=`${pick.text} — ${pick.ref} (NLT)`;
 
-    /* ---- PLACEHOLDERS FOR SPECIALTY (swap image paths when you have them) ---- */
+    /* Specialty placeholders (swap image paths when ready) */
     const specialtyPlaceholders = [
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-1.png' */ },
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-2.png' */ },
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-3.png' */ }
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" },
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" },
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" }
     ];
 
-    /* ---- REAL ROASTER SELECTION (Light → Medium → Dark) ---- */
+    /* Roaster selection (Light → Medium → Dark) */
     const roasterProducts = [
       {
         name: "Morning Praise",
