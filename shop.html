@@ -19,7 +19,7 @@
     }
     .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    /* Header (same as Home) */
+    /* Header (match Home) */
     .site-header{
       position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;
       padding:16px 24px;background:var(--sage);border-bottom:3px solid var(--bean);
@@ -28,24 +28,31 @@
     .brand-text h1{margin:0;font-size:20px;color:#fff;letter-spacing:.4px}
     .tag{margin:2px 0 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
 
-    /* Cards + sections (same vibe as Home) */
+    /* Sections + Cards (match Home vibe) */
     .section{margin:24px 0}
     .card{
       background:var(--white);border:2px solid var(--staff);
       border-radius:16px;padding:20px;box-shadow:0 6px 0 var(--staff)
     }
-    .hero{
-      background:linear-gradient(180deg, var(--foam), var(--cream));
-    }
-    h2.section-title{margin:0 0 12px 0}
+    .hero{background:linear-gradient(180deg, var(--foam), var(--cream));}
+    h2.section-title{margin:0 0 12px}
 
     /* Product grid/cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-    .p-card .imgbox{aspect-ratio:4/3;background:#f7f3ec;display:flex;align-items:center;justify-content:center;border-radius:12px;overflow:hidden}
-    .p-card img{max-width:100%;max-height:100%;object-fit:cover}
-    .p-name{margin:12px 0 6px 0;font-weight:700}
-    .p-notes{margin:0 0 10px 0;font-size:14px;color:#5a4636}
-    .p-meta{display:flex;justify-content:space-between;align-items:center;margin:8px 0 12px 0}
+    .p-card .imgbox{
+      aspect-ratio:3/4;              /* portrait frame for coffee bags */
+      background:#f7f3ec;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:12px;overflow:hidden;padding:8px;
+    }
+    .p-card img{
+      max-width:100%;max-height:100%;
+      object-fit:contain;            /* show whole bag, no crop */
+      display:block;
+    }
+    .p-name{margin:12px 0 6px;font-weight:700}
+    .p-notes{margin:0 0 10px;font-size:14px;color:#5a4636}
+    .p-meta{display:flex;justify-content:space-between;align-items:center;margin:8px 0 12px}
     .badge{
       display:inline-block;font-size:12px;border:1px solid var(--staff);
       padding:4px 10px;border-radius:999px;background:var(--foam);color:var(--staff)
@@ -55,14 +62,15 @@
       background:var(--olive);color:#fff;border-radius:999px;
       font-weight:700;text-decoration:none
     }
+    .btn.secondary{background:transparent;color:var(--olive);border:2px solid var(--olive)}
     .btn:hover{filter:brightness(1.05)}
 
-    /* Footer (same as Home) */
+    /* Footer (match Home) */
     .site-footer{padding:28px 24px;background:var(--sage);
       border-top:none;text-align:center;color:#fff}
     .verse{font-style:italic;margin-bottom:8px;opacity:.95}
 
-    /* Bottom sticky nav (same as Home) */
+    /* Bottom sticky nav (match Home) */
     .bottom-nav{
       position:fixed;left:0;right:0;bottom:0;z-index:25;
       display:flex;justify-content:center;flex-wrap:wrap;gap:8px;
@@ -98,13 +106,13 @@
       <p>Freshly ground, sealed, and sent with care from our roastery.</p>
     </section>
 
-    <!-- Ground Specialty Blends -->
+    <!-- Ground Specialty Blends (placeholders for future add-ons) -->
     <section class="section card">
       <h2 class="section-title">Ground Specialty Blends</h2>
       <div id="specialty-grid" class="grid"></div>
     </section>
 
-    <!-- Roaster’s Selection -->
+    <!-- Roaster’s Selection (real products) -->
     <section class="section card">
       <h2 class="section-title">Roaster’s Selection (Ground)</h2>
       <div id="roaster-grid" class="grid"></div>
@@ -129,7 +137,7 @@
   </nav>
 
   <script>
-    // Year + verse (same logic as Home)
+    // Year + verse (same feel as Home)
     document.getElementById('year').textContent = new Date().getFullYear();
     const verses=[
       {ref:"Psalm 118:22",text:"The stone that the builders rejected has now become the cornerstone."},
@@ -139,34 +147,32 @@
     const pick=verses[Math.floor(Math.random()*verses.length)];
     document.getElementById('verse').textContent=`${pick.text} — ${pick.ref} (NLT)`;
 
-    /* Products — Light → Medium → Dark with image paths under assets/images/ */
-    const products = [
+    /* ---- PLACEHOLDERS FOR SPECIALTY (swap image paths when you have them) ---- */
+    const specialtyPlaceholders = [
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-1.png' */ },
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-2.png' */ },
+      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"" /* e.g., 'assets/images/specialty-3.png' */ }
+    ];
+
+    /* ---- REAL ROASTER SELECTION (Light → Medium → Dark) ---- */
+    const roasterProducts = [
       {
         name: "Morning Praise",
-        category: "specialty",   // Light Roast
-        price: 23.00,
-        size: "1 lb",
-        grind: ["Ground"],
+        price: 23.00, size: "1 lb", grind: ["Ground"],
         notes: "A bright, uplifting roast that starts the day with warmth and joy.",
         image: "assets/images/TahilaCHLR.png",
         sortOrder: 1
       },
       {
         name: "Cornerstone Blend",
-        category: "roaster",     // Medium Roast
-        price: 23.00,
-        size: "1 lb",
-        grind: ["Ground"],
+        price: 23.00, size: "1 lb", grind: ["Ground"],
         notes: "Smooth and balanced, a steady anchor for daily fellowship and conversation.",
         image: "assets/images/TahilaBagMed.png",
         sortOrder: 2
       },
       {
         name: "Trinity Praise",
-        category: "roaster",     // Dark Roast
-        price: 21.00,
-        size: "1 lb",
-        grind: ["Ground"],
+        price: 21.00, size: "1 lb", grind: ["Ground"],
         notes: "Deep and bold, a cup that turns even the late hours into praise.",
         image: "assets/images/TahilaCHBagDR.png",
         sortOrder: 3
@@ -174,6 +180,7 @@
     ];
 
     function productCard(p){
+      const price = (p.price!=="" && p.price!=null) ? `$${Number(p.price).toFixed(2)}` : "";
       return `
         <article class="p-card">
           <div class="imgbox">
@@ -183,27 +190,28 @@
           <h3 class="p-name">${p.name}</h3>
           <p class="p-notes">${p.notes || ""}</p>
           <div class="p-meta">
-            <span>${p.size || "12 oz"}</span>
-            <strong>$${Number(p.price).toFixed(2)}</strong>
+            <span>${p.size || ""}</span>
+            <strong>${price}</strong>
           </div>
           <span class="badge">${(p.grind||["Ground"]).join(", ")}</span>
           <div>
             <a class="btn" href="#">Add to Cart</a>
-            <a class="btn" style="background:transparent;color:var(--olive);border:2px solid var(--olive)" href="#">Details</a>
+            <a class="btn secondary" href="#">Details</a>
           </div>
         </article>
       `;
     }
 
     function render(){
+      // Specialty placeholders (3 cards)
+      document.getElementById('specialty-grid').innerHTML =
+        specialtyPlaceholders.map(productCard).join('');
+
+      // Roaster selection, ordered Light → Medium → Dark
       const byOrder = (a,b)=>(a.sortOrder??999)-(b.sortOrder??999);
-      const specialty = products.filter(p=>p.category==="specialty").sort(byOrder);
-      const roaster   = products.filter(p=>p.category==="roaster").sort(byOrder);
-
-      document.getElementById('specialty-grid').innerHTML = specialty.map(productCard).join('');
-      document.getElementById('roaster-grid').innerHTML   = roaster.map(productCard).join('');
+      document.getElementById('roaster-grid').innerHTML =
+        roasterProducts.sort(byOrder).map(productCard).join('');
     }
-
     render();
   </script>
 </body>
