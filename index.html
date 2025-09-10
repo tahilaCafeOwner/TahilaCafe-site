@@ -4,134 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tahila Coffee House — Cornerstone of Community</title>
-  <style>
-    /* ===== Brand palette ===== */
-    :root{
-      --bean:#83361F; --olive:#6E8F74; --foam:#EDE3D2; --sage:#8BAE8C;
-      --cream:#F5F1E8; --staff:#734D3B; --white:#FFFFFF; --black:#000000;
-    }
-
-    /* ===== Base ===== */
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;background:var(--cream);color:var(--staff);
-      font-family:"Times New Roman", Times, serif;line-height:1.5;
-      padding-bottom:96px; /* space for desktop bottom nav */
-    }
-    .container{max-width:1100px;margin:0 auto;padding:24px 24px 96px}
-
-    /* ===== Header (Sage) ===== */
-    .site-header{
-      position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;
-      padding:16px 24px;background:var(--sage);border-bottom:3px solid var(--bean);
-    }
-    .logo{width:56px;height:56px;object-fit:contain}
-    .brand-text h1{margin:0;font-size:20px;color:#fff;letter-spacing:.4px}
-    .tag{margin:2px 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
-
-    /* ===== Hamburger (mobile) ===== */
-    .hamburger{
-      margin-left:auto;width:44px;height:44px;border:2px solid var(--white);
-      border-radius:10px;background:transparent;color:#fff;
-      display:none;align-items:center;justify-content:center;cursor:pointer;
-    }
-    .hamburger .bar{display:block;width:22px;height:2px;background:#fff;position:relative}
-    .hamburger .bar::before,.hamburger .bar::after{
-      content:"";position:absolute;left:0;width:22px;height:2px;background:#fff
-    }
-    .hamburger .bar::before{top:-7px}
-    .hamburger .bar::after{top:7px}
-
-    /* ===== Mobile slide-out menu ===== */
-    .mobile-menu{
-      position:fixed; inset:0 0 0 40%; background:rgba(237,227,210,0.98); /* foam */
-      border-left:3px solid var(--bean);
-      transform:translateX(100%); transition:transform .25s ease;
-      z-index:9999; padding:18px;
-    }
-    .mobile-menu.open{ transform:translateX(0); }
-    .mobile-menu a{
-      display:block;padding:12px 10px;margin:6px 0;text-decoration:none;
-      color:#3b2d25;background:#fff;border:1px solid #e6dccb;border-radius:12px;font-weight:700;
-    }
-    .mobile-menu .close{
-      background:transparent;border:none;font-size:28px;line-height:1;
-      color:#3b2d25;padding:6px;margin-bottom:8px;cursor:pointer;
-    }
-
-    /* ===== Sections & Cards ===== */
-    .section{margin:24px 0;scroll-margin-top:96px}
-    .card{
-      background:var(--white);
-      border:2px solid var(--staff);
-      border-radius:16px;
-      padding:20px;
-      box-shadow:0 6px 0 var(--staff);
-    }
-    .btn{
-      display:inline-block;padding:10px 14px;margin-top:10px;
-      background:var(--olive);color:#fff;border-radius:999px;
-      font-weight:700;text-decoration:none
-    }
-    .btn:hover{filter:brightness(1.05)}
-
-    /* Split layout */
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-    .split .media img{width:100%;height:100%;max-height:380px;object-fit:cover;border-radius:12px}
-    .split.reverse{grid-template-areas:"content media";}
-    .split:not(.reverse){grid-template-areas:"media content";}
-    .split > .media{grid-area:media}
-    .split > .content{grid-area:content}
-
-    @media (max-width:900px){
-      .split,.split.reverse{grid-template-columns:1fr;grid-template-areas:"media" "content";}
-      .split .media img{max-height:300px}
-    }
-
-    /* ===== Footer ===== */
-    .site-footer{
-      padding:28px 24px;background:var(--sage);text-align:center;color:#fff
-    }
-    .verse{font-style:italic;margin-bottom:8px;opacity:.95}
-
-    /* ===== Bottom sticky nav (desktop only) ===== */
-    .bottom-nav{
-      position:fixed;left:0;right:0;bottom:0;z-index:25;
-      display:flex;justify-content:center;flex-wrap:wrap;gap:8px;
-      padding:10px 12px;background:var(--foam);border-top:3px solid var(--bean)
-    }
-    .bottom-nav a{
-      display:inline-block;padding:10px 14px;margin:2px 4px;text-decoration:none;
-      background:var(--olive);color:#fff;border-radius:999px;font-weight:700
-    }
-    .bottom-nav a:hover{filter:brightness(1.05)}
-    a.is-active{box-shadow:inset 0 0 0 2px var(--bean)}
-
-    /* ===== Responsive: show hamburger, hide bottom nav on mobile ===== */
-    @media (max-width:768px){
-      .bottom-nav{ display:none; }
-      .hamburger{ display:flex; }
-      .mobile-menu{ inset:0; } /* full-width panel on small screens */
-      .logo{width:48px;height:48px}
-      .brand-text h1{font-size:18px}
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles/thc.css">
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
-    <img
-      src="assets/images/4%20colors%20THC%20Main%201024%20x%201024%20PNG.png"
-      alt="Tahila Coffee House logo"
-      class="logo"
-    />
+    <img src="assets/images/4%20colors%20THC%20Main%201024%20x%201024%20PNG.png"
+      alt="Tahila Coffee House logo" class="logo" />
     <div class="brand-text">
       <h1>Tahila Coffee House</h1>
       <p class="tag">Cornerstone of Community</p>
     </div>
-
-    <!-- Hamburger (mobile) -->
     <button class="hamburger" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
       <span class="bar"></span>
     </button>
@@ -149,7 +32,6 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Main content -->
   <main class="container">
     <!-- Welcome / Hero -->
     <section id="home" class="section card">
@@ -288,7 +170,6 @@
     (function(){
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
-
       const verses=[
         {ref:"Psalm 118:22",text:"The stone that the builders rejected has now become the cornerstone."},
         {ref:"Colossians 3:23",text:"Work willingly at whatever you do, as though you were working for the Lord rather than for people."},
@@ -304,10 +185,8 @@
       const btn = document.getElementById('hamburgerBtn');
       const panel = document.getElementById('mobileMenu');
       const closeBtn = document.getElementById('closeMenu');
-
       function openMenu(){ panel.classList.add('open'); btn?.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
       function closeMenu(){ panel.classList.remove('open'); btn?.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-
       btn?.addEventListener('click', openMenu);
       closeBtn?.addEventListener('click', closeMenu);
       document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
