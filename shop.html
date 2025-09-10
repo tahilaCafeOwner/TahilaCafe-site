@@ -68,7 +68,8 @@
       object-position:center top;    /* keep top/logo in view */
       display:block;
     }
-    .p-name{margin:12px 0 6px;font-weight:700}
+    .p-name{margin:12px 0 2px;font-weight:700}
+    .subtitle{margin:0 0 6px;font-size:13px;color:#7a685a;font-style:italic}
     .p-notes{margin:0 0 10px;font-size:14px;color:#5a4636}
     .p-meta{display:flex;justify-content:space-between;align-items:center;margin:8px 0 12px}
     .badge{
@@ -130,7 +131,7 @@
       <div id="roaster-grid" class="grid"></div>
     </section>
 
-    <!-- 2) Ground Specialty Blends (with your three new images) -->
+    <!-- 2) Ground Specialty Blends (with subtitles) -->
     <section class="section card">
       <h2 class="section-title">Ground Specialty Blends</h2>
       <div id="specialty-grid" class="grid"></div>
@@ -190,15 +191,34 @@
       }
     ];
 
-    /* Specialty (your three new images) */
+    /* Specialty (names, subtitles, notes @ $24.00) */
     const specialtyBlends = [
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"assets/images/TahilaSpec1.png" },
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"assets/images/TahilaSpec2.png" },
-      { name:"Coming Soon", notes:"Future specialty roast", size:"", price:"", grind:["Ground"], image:"assets/images/TahilaSpec3.png" }
+      {
+        name:"Daily Bread",
+        subtitle:"Breakfast Blend",
+        price:24.00, size:"1 lb", grind:["Ground"],
+        notes:"Nourishing and comforting.",
+        image:"assets/images/TahilaSpec1.png"
+      },
+      {
+        name:"Still Waters",
+        subtitle:"Decaf",
+        price:24.00, size:"1 lb", grind:["Ground"],
+        notes:"Peaceful and calm.",
+        image:"assets/images/TahilaSpec2.png"
+      },
+      {
+        name:"Strong Tower",
+        subtitle:"Dark Roast Blend",
+        price:24.00, size:"1 lb", grind:["Ground"],
+        notes:"A powerful, enduring blend.",
+        image:"assets/images/TahilaSpec3.png"
+      }
     ];
 
     function productCard(p){
       const price = (p.price!=="" && p.price!=null) ? `$${Number(p.price).toFixed(2)}` : "";
+      const subtitle = p.subtitle ? `<p class="subtitle">${p.subtitle}</p>` : "";
       return `
         <article class="p-card">
           <div class="imgbox">
@@ -206,6 +226,7 @@
                       : `<span style="font-size:13px;color:#8b7a6b">Image coming soon</span>`}
           </div>
           <h3 class="p-name">${p.name}</h3>
+          ${subtitle}
           <p class="p-notes">${p.notes || ""}</p>
           <div class="p-meta">
             <span>${p.size || ""}</span>
@@ -226,7 +247,7 @@
       document.getElementById('roaster-grid').innerHTML =
         roasterProducts.sort(byOrder).map(productCard).join('');
 
-      // Then Specialty with your three images
+      // Then Specialty with subtitles
       document.getElementById('specialty-grid').innerHTML =
         specialtyBlends.map(productCard).join('');
     }
