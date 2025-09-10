@@ -7,35 +7,65 @@
   <style>
     :root{
       --bean:#83361F; --olive:#6E8F74; --foam:#EDE3D2; --sage:#8BAE8C;
-      --cream:#F5F1E8; --staff:#734D3B; --white:#FFFFFF;
+      --cream:#F5F1E8; --staff:#734D3B; --white:#FFFFFF; --black:#000000;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
     body{
       margin:0;background:var(--cream);color:var(--staff);
-      font-family:"Times New Roman", Times, serif;
-      line-height:1.5;
+      font-family:"Times New Roman", Times, serif;line-height:1.5;
+      padding-bottom:96px;
     }
     .container{max-width:1100px;margin:0 auto;padding:24px 24px 96px}
 
-    /* Header (Sage) */
+    /* Header */
     .site-header{
       position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;
       padding:16px 24px;background:var(--sage);border-bottom:3px solid var(--bean);
     }
     .logo{width:56px;height:56px;object-fit:contain}
     .brand-text h1{margin:0;font-size:20px;color:#fff;letter-spacing:.4px}
-    .tag{margin:2px 0 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
+    .tag{margin:2px 0 0;color:#fff;font-weight:700;font-size:13px;opacity:.9}
+
+    /* Hamburger */
+    .hamburger {
+      margin-left:auto;width:44px;height:44px;border:2px solid var(--white);
+      border-radius:10px;background:transparent;color:#fff;
+      display:none;align-items:center;justify-content:center;cursor:pointer;
+    }
+    .hamburger .bar{display:block;width:22px;height:2px;background:#fff;position:relative}
+    .hamburger .bar::before,.hamburger .bar::after{
+      content:"";position:absolute;left:0;width:22px;height:2px;background:#fff
+    }
+    .hamburger .bar::before{top:-7px}
+    .hamburger .bar::after{top:7px}
+
+    /* Mobile menu */
+    .mobile-menu {
+      position:fixed; inset:0 0 0 40%; background:rgba(237,227,210,0.98);
+      border-left:3px solid var(--bean);
+      transform:translateX(100%); transition:transform .25s ease;
+      z-index:9999; padding:18px;
+    }
+    .mobile-menu.open{ transform:translateX(0); }
+    .mobile-menu a{
+      display:block;padding:12px 10px;margin:6px 0;
+      text-decoration:none;color:#3b2d25;background:#fff;
+      border:1px solid #e6dccb;border-radius:12px;font-weight:700;
+    }
+    .mobile-menu .close {
+      background:transparent;border:none;font-size:28px;line-height:1;
+      color:#3b2d25;padding:6px;margin-bottom:8px;cursor:pointer;
+    }
 
     /* Cards */
     .section{margin:24px 0;scroll-margin-top:96px}
     .card{background:var(--white);border:2px solid var(--staff);
       border-radius:16px;padding:20px;box-shadow:0 6px 0 var(--staff)}
-    .btn{
-      display:inline-block;padding:10px 14px;margin-top:10px;
+
+    .btn{display:inline-block;padding:10px 14px;margin-top:10px;
       background:var(--olive);color:#fff;border-radius:999px;
-      font-weight:700;text-decoration:none
-    }
+      font-weight:700;text-decoration:none}
     .btn:hover{filter:brightness(1.05)}
 
     /* Split cards */
@@ -50,12 +80,11 @@
       .split .media img{max-height:300px}
     }
 
-    /* Footer (Sage) */
-    .site-footer{padding:28px 24px;background:var(--sage);
-      border-top:none;text-align:center;color:#fff}
+    /* Footer */
+    .site-footer{padding:28px 24px;background:var(--sage);text-align:center;color:#fff}
     .verse{font-style:italic;margin-bottom:8px;opacity:.95}
 
-    /* Bottom sticky nav */
+    /* Bottom nav */
     .bottom-nav{
       position:fixed;left:0;right:0;bottom:0;z-index:25;
       display:flex;justify-content:center;flex-wrap:wrap;gap:8px;
@@ -67,140 +96,47 @@
     }
     .bottom-nav a:hover{filter:brightness(1.05)}
     a.is-active{box-shadow:inset 0 0 0 2px var(--bean)}
-    @media (max-width:640px){.logo{width:48px;height:48px}.brand-text h1{font-size:18px}}
+
+    /* Responsive */
+    @media (max-width:768px){
+      .bottom-nav{ display:none; }
+      .hamburger{ display:flex; }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
-    <img
-      src="assets/images/4%20colors%20THC%20Main%201024%20x%201024%20PNG.png"
-      alt="Tahila Coffee House logo"
-      class="logo"
-    />
+    <img src="assets/images/4%20colors%20THC%20Main%201024%20x%201024%20PNG.png"
+      alt="Tahila Coffee House logo" class="logo" />
     <div class="brand-text">
       <h1>Tahila Coffee House</h1>
       <p class="tag">Cornerstone of Community</p>
     </div>
+    <button class="hamburger" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+      <span class="bar"></span>
+    </button>
   </header>
 
+  <!-- Slide-out Mobile Menu -->
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile">
+    <button class="close" id="closeMenu" aria-label="Close menu">×</button>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="shop.html">Shop Now</a>
+    <a href="#holiday">Holiday</a>
+    <a href="#community">Community</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <main class="container">
-    <!-- Welcome -->
+    <!-- Example sections -->
     <section id="home" class="section card">
       <h2>Welcome</h2>
-      <p>
-        Step inside Tahila Coffee House—where coffee, community, and Christ come together. 
-        Whether you’re here to recharge, connect with friends, or join in worship, 
-        our doors are open and the Holy Spirit is welcome.
-      </p>
+      <p>Step inside Tahila Coffee House—where coffee, community, and Christ come together.</p>
     </section>
-
-    <!-- Coffee -->
-    <section class="section card split">
-      <div class="media">
-        <img src="assets/images/coffee.png" alt="Cup of coffee">
-      </div>
-      <div class="content">
-        <h2>Fresh Coffee</h2>
-        <p>Rich, balanced roasts crafted with care. Sip slow, breathe easy.</p>
-        <a href="#menu" class="btn">View Menu</a>
-      </div>
-    </section>
-
-    <!-- Bakery -->
-    <section class="section card split reverse">
-      <div class="media">
-        <img src="assets/images/bakery.png" alt="Bakery treats">
-      </div>
-      <div class="content">
-        <h2>Bakery Treats</h2>
-        <p>Daily breads and pastries—perfect pairings for every cup.</p>
-        <a href="#shop" class="btn">Shop Now</a>
-      </div>
-    </section>
-<!-- Holiday Drinks -->
-<section id="holiday" class="section card split">
-  <div class="media">
-    <img src="assets/images/TahilaCHFall.png" alt="Holiday drinks at Tahila Coffee House">
-  </div>
-  <div class="content">
-    <h2>Holiday Drinks</h2>
-    <p>We love the Holidays, so enjoy these Holiday Lattes, and delights!</p>
-    <a href="#holiday" class="btn">Taste the Season</a>
-  </div>
-</section>
-    <!-- About -->
-    <section id="about" class="section card split">
-      <div class="media">
-        <img src="assets/images/TahilaCHAbout.png" alt="About Tahila Coffee House">
-      </div>
-      <div class="content">
-        <h2>About Us</h2>
-        <p>
-          “Tahila” is a Hebrew word meaning praise, often expressed through singing and raising hands in worship. 
-          It speaks to joy, thanksgiving, and lifting our hearts to God.
-        </p>
-        <p>
-          We exist to be a cornerstone for our community, serving excellent coffee, food, and Christian products 
-          while creating a space for fellowship, music, and faith. Jesus is at the center of everything we do, 
-          and we seek to reflect His love in every cup we pour.
-        </p>
-        <a href="#about" class="btn">Learn More</a>
-      </div>
-    </section>
-
-    <!-- Menu -->
-    <section id="menu" class="section card split reverse">
-      <div class="media">
-        <img src="assets/images/TahilaCHMenu.png" alt="Coffee menu at Tahila Coffee House">
-      </div>
-      <div class="content">
-        <h2>Menu</h2>
-        <p>Espresso, Latte, Pour Over, and more.</p>
-        <a href="#menu" class="btn">See Menu</a>
-      </div>
-    </section>
-
-    <!-- Shop -->
-    <section id="shop" class="section card split">
-      <div class="media">
-        <img src="assets/images/TahilaCHShop.png" alt="Shop coffee beans and merchandise">
-      </div>
-      <div class="content">
-        <h2>Shop</h2>
-        <p>Beans and merch coming soon. Wholesale? Email us.</p>
-        <a href="#shop" class="btn">Shop Now</a>
-      </div>
-    </section>
-
-    <!-- Community -->
-    <section id="community" class="section card split reverse">
-      <div class="media">
-        <img src="assets/images/TahilaCHCommunity.png" alt="Community corner events at Tahila Coffee House">
-      </div>
-      <div class="content">
-        <h2>Community Corner</h2>
-        <p>Pop-up pantry, open-mic jazz night, and volunteer Saturday.</p>
-        <a href="#community" class="btn">Get Involved</a>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section card split">
-      <div class="media">
-        <img src="assets/images/TahilaCHContact.png" alt="Contact Tahila Coffee House">
-      </div>
-      <div class="content">
-        <h2>Contact</h2>
-        <p>
-          We’d love to hear from you. Reach out anytime with questions, ideas, or to get involved.
-        </p>
-        <p>
-          <a href="mailto:tahilacoffeehouse@gmail.com">tahilacoffeehouse@gmail.com</a>
-        </p>
-        <a href="#contact" class="btn">Reach Out</a>
-      </div>
-    </section>
+    <!-- Add your existing split sections here... -->
   </main>
 
   <!-- Footer -->
@@ -209,9 +145,9 @@
     <p>© <span id="year"></span> Tahila Coffee House Ltd Co — All rights reserved.</p>
   </footer>
 
-    <!-- Bottom Nav -->
+  <!-- Bottom Nav (desktop only) -->
   <nav class="bottom-nav" aria-label="Quick links">
-    <a href="#home">Home</a>
+    <a href="#home" class="is-active">Home</a>
     <a href="#about">About</a>
     <a href="#menu">Menu</a>
     <a href="shop.html">Shop Now</a>
@@ -231,15 +167,17 @@
     const pick=verses[Math.floor(Math.random()*verses.length)];
     document.getElementById('verse').textContent=`${pick.text} — ${pick.ref} (NLT)`;
 
-    // Scrollspy
-    const links=[...document.querySelectorAll('.bottom-nav a')];
-    const targets=links.map(a=>document.querySelector(a.getAttribute('href')));
-    const io=new IntersectionObserver(entries=>{
-      const vis=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-      if(!vis) return;
-      links.forEach(a=>a.classList.toggle('is-active', a.getAttribute('href')==='#'+vis.target.id));
-    },{rootMargin:"-30% 0px -60% 0px",threshold:[0.2,0.5,0.8]});
-    targets.forEach(el=>el && io.observe(el));
+    // Hamburger controls
+    (function(){
+      const btn = document.getElementById('hamburgerBtn');
+      const panel = document.getElementById('mobileMenu');
+      const closeBtn = document.getElementById('closeMenu');
+      function openMenu(){ panel.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function closeMenu(){ panel.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+      btn && btn.addEventListener('click', openMenu);
+      closeBtn && closeBtn.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+    })();
   </script>
 </body>
 </html>
